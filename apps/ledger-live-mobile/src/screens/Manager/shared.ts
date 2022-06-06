@@ -6,14 +6,14 @@ import { withDevice } from "@ledgerhq/live-common/lib/hw/deviceAccess";
 
 export function useApps(
   listAppsRes: ListAppsResult,
-  deviceId: string,
+  deviceId: string, 
   appsToRestore?: string[],
 ) {
   const exec: Exec = useCallback(
     (...args) =>
-      withDevice(deviceId)(transport => execWithTransport(transport)(...args)),
+      withDevice(deviceId)(transport  => execWithTransport(transport)(...args)),
     [deviceId],
   );
 
-  return useAppsRunner(listAppsRes, exec, appsToRestore);
+  return  useAppsRunner (listAppsRes, exec, appsToRestore, deviceId);
 }

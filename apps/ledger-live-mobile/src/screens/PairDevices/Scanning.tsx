@@ -6,10 +6,10 @@ import { Observable } from "rxjs";
 import { InfiniteLoader } from "@ledgerhq/native-ui";
 import { DeviceModelId } from "@ledgerhq/devices/src/index";
 import { getInfosForServiceUuid } from "@ledgerhq/devices";
+import BluetoothTransport from "@ledgerhq/hw-transport-react-native-ble";
 import logger from "../../logger";
 import { BLE_SCANNING_NOTHING_TIMEOUT } from "../../constants";
 import { knownDevicesSelector } from "../../reducers/ble";
-import TransportBLE from "../../react-native-hw-transport-ble";
 import { TrackScreen } from "../../analytics";
 import DeviceItem from "../../components/SelectDevice/DeviceItem";
 import ScanningHeader from "./ScanningHeader";
@@ -59,18 +59,12 @@ export default function Scanning({ onTimeout, onError, onSelect }: Props) {
     const timeout = setTimeout(() => {
       onTimeout();
     }, BLE_SCANNING_NOTHING_TIMEOUT);
-
-    const sub = Observable.create(TransportBLE.listen).subscribe({
+    const sub = new Observable(BluetoothTransport.listen).subscribe({
       next: (e: { type: string; descriptor: any }) => {
         if (e.type === "add") {
           clearTimeout(timeout);
-          const device = e.descriptor;
-          // FIXME seems like we have dup. ideally we'll remove them on the listen side!
-          setDevices(devices =>
-            devices.some(i => i.id === device.id)
-              ? devices
-              : [...devices, device],
-          );
+          const device = e.descriptor
+          setDevices(devices => [...devices, device]);
         }
       },
       error: (error: Error) => {
@@ -102,7 +96,6 @@ export default function Scanning({ onTimeout, onError, onSelect }: Props) {
 
 const styles = StyleSheet.create({
   list: {
-    flex: 1,
     paddingHorizontal: 16,
   },
 });

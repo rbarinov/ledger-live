@@ -4,7 +4,6 @@
 
 import React, { Component } from "react";
 import { Observable } from "rxjs";
-import TransportBLE from "../../react-native-hw-transport-ble";
 import RequiresLocationOnAndroid from "./RequiresLocationOnAndroid";
 import BluetoothDisabled from "./BluetoothDisabled";
 
@@ -18,19 +17,19 @@ type State = {
 
 class RequiresBLE extends Component<Props, State> {
   state = {
-    type: "Unknown",
+    type: "PoweredOn",
   };
 
   sub: *;
 
   componentDidMount() {
-    this.sub = Observable.create(TransportBLE.observeState).subscribe({
-      next: ({ type }) => this.setState({ type }),
-    });
+    // this.sub = Observable.create(TransportBLE.observeState).subscribe({
+    //   next: ({ type }) => this.setState({ type }),
+    // });
   }
 
   componentWillUnmount() {
-    this.sub.unsubscribe();
+    // this.sub.unsubscribe();
   }
 
   render() {
@@ -45,6 +44,8 @@ class RequiresBLE extends Component<Props, State> {
 }
 
 export default function RequiresBLEWrapped({ children }: *) {
+  // FIXME BIM, we need to use this from the new transport.
+  return children;
   return (
     <RequiresLocationOnAndroid>
       <RequiresBLE>{children}</RequiresBLE>
