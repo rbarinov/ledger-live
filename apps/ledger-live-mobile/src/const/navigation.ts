@@ -317,6 +317,8 @@ export enum ScreenName {
   OnboardingModalSyncDesktopInformation = "OnboardingModalSyncDesktopInformation",
   OnboardingModalRecoveryPhraseWarning = "OnboardingModalRecoveryPhraseWarning",
 
+  SyncOnboardingCompanion = "SyncOnboardingCompanion",
+
   PlatformCatalog = "PlatformCatalog",
   PlatformApp = "PlatformApp",
 
@@ -382,6 +384,7 @@ export enum NavigatorName {
   MigrateAccountsFlow = "MigrateAccountsFlow",
   NftNavigator = "NftNavigator",
   Onboarding = "Onboarding",
+  SyncOnboarding = "SyncOnboarding",
   PasswordAddFlow = "PasswordAddFlow",
   PasswordModifyFlow = "PasswordModifyFlow",
   Platform = "Platform",
