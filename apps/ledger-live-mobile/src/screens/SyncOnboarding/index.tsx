@@ -10,9 +10,6 @@ import { useTheme } from "styled-components/native";
 
 import { ScreenName } from "../../const";
 import type { SyncOnboardingStackParamList } from "../../components/RootNavigator/SyncOnboardingNavigator";
-import { useOnboardingStatePolling } from "@ledgerhq/live-common/lib/onboarding/hooks/useOnboardingStatePolling";
-
-const pollingPeriodMs = 1000;
 
 const defaultOnboardingSteps = [
     {
