@@ -15,75 +15,22 @@
 
 #### Table of Contents
 
--   [BluetoothTransport](#bluetoothtransport)
-    -   [Parameters](#parameters)
-    -   [Examples](#examples)
+-   [BluetoothBLEiOS](#bluetoothbleios)
     -   [exchange](#exchange)
-        -   [Parameters](#parameters-1)
-    -   [isSupported](#issupported)
-    -   [availability](#availability)
-    -   [listen](#listen)
-        -   [Parameters](#parameters-2)
-    -   [open](#open)
-        -   [Parameters](#parameters-3)
-    -   [disconnect](#disconnect)
-        -   [Parameters](#parameters-4)
+        -   [Parameters](#parameters)
 
-### BluetoothTransport
+### BluetoothBLEiOS
 
 **Extends Transport**
 
-TransportNodeBle bluetooth BLE implementation
-
-#### Parameters
-
--   `device` **Device** 
--   `writeCharacteristic` **any** 
--   `notifyObservable` **Observable&lt;[Buffer](https://nodejs.org/api/buffer.html)>** 
--   `deviceModel` **DeviceModel** 
-
-#### Examples
-
-```javascript
-import BluetoothTransport from "@ledgerhq/hw-transport-node-ble";
-```
+BluetoothBLEiOS bluetooth BLE implementation
 
 #### exchange
 
-communicate with a BLE transport
+Communicate with a BLE transport
 
 ##### Parameters
 
 -   `apdu` **[Buffer](https://nodejs.org/api/buffer.html)** 
 
 Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Buffer](https://nodejs.org/api/buffer.html)>** 
-
-#### isSupported
-
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** 
-
-#### availability
-
-#### listen
-
-Scan for bluetooth Ledger devices
-
-##### Parameters
-
--   `observer` **any** 
-
-#### open
-
-Open a BLE transport
-
-##### Parameters
-
--   `deviceOrId` **any** 
-
-#### disconnect
-
-Globally disconnect a BLE device by its ID
-
-##### Parameters
-
--   `id` **any** 
