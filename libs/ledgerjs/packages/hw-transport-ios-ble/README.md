@@ -15,22 +15,22 @@
 
 #### Table of Contents
 
--   [BluetoothBLEiOS](#bluetoothbleios)
-    -   [exchange](#exchange)
-        -   [Parameters](#parameters)
+*   [TransportBLEiOS](#transportbleios)
+    *   [exchange](#exchange)
+        *   [Parameters](#parameters)
 
-### BluetoothBLEiOS
+### TransportBLEiOS
 
 **Extends Transport**
 
-BluetoothBLEiOS bluetooth BLE implementation
+iOS Bluetooth Transport implementation
 
 #### exchange
 
-Communicate with a BLE transport
+communicate with a BLE transport
 
 ##### Parameters
 
--   `apdu` **[Buffer](https://nodejs.org/api/buffer.html)** 
+*   `apdu` **[Buffer](https://nodejs.org/api/buffer.html)** 
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Buffer](https://nodejs.org/api/buffer.html)>** 
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[Buffer](https://nodejs.org/api/buffer.html)>** 
