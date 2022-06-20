@@ -11,8 +11,6 @@ import {
   getCryptoCurrencyById,
   listTokensForCryptoCurrency,
 } from "@ledgerhq/cryptoassets";
-import { rejects } from "assert";
-import { resolve } from "path";
 
 describe("blacklistedTokenIds functionality", () => {
   const account = fromAccountRaw(ethereum1);
