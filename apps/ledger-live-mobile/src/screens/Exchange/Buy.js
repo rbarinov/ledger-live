@@ -5,7 +5,7 @@ import { View, StyleSheet, Platform } from "react-native";
 import SafeAreaView from "react-native-safe-area-view";
 import { useTranslation } from "react-i18next";
 import { useNavigation, useTheme } from "@react-navigation/native";
-import { usePlatformApp } from "@ledgerhq/live-common/lib/platform/PlatformAppProvider";
+import { usePlatformApp } from "@ledgerhq/live-common/platform/PlatformAppProvider/index";
 import extraStatusBarPadding from "../../logic/extraStatusBarPadding";
 import TrackScreen from "../../analytics/TrackScreen";
 import Button from "../../components/Button";

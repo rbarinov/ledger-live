@@ -10,7 +10,49 @@
   },
   "version": "23.0.0",
   "main": "lib/index.js",
+  "module": "lib-es/index.js",
   "types": "lib/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "lib/*/": [
+        "lib/*/index.d.ts"
+      ],
+      "lib/*": [
+        "lib/*"
+      ],
+      "lib-es/*/": [
+        "lib-es/*/index.d.ts"
+      ],
+      "lib-es/*": [
+        "lib-es/*"
+      ],
+      "*/": [
+        "lib/*/index.d.ts"
+      ],
+      "*": [
+        "lib/*"
+      ]
+    }
+  },
+  "exports": {
+    "./lib/*/": "./lib/*/index.js",
+    "./lib/*": "./lib/*.js",
+    "./lib-es/*/": "./lib-es/*/index.js",
+    "./lib-es/*": "./lib-es/*.js",
+    "./*/": {
+      "require": "./lib/*/index.js",
+      "default": "./lib-es/*/index.js"
+    },
+    "./*": {
+      "require": "./lib/*.js",
+      "default": "./lib-es/*.js"
+    },
+    ".": {
+      "require": "./lib/index.js",
+      "default": "./lib-es/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "license": "Apache-2.0",
   "scripts": {
     "build": "bash ./scripts/build-ts.sh",
@@ -69,7 +111,7 @@
     "@ethereumjs/common": "^2.6.2",
     "@ethereumjs/tx": "^3.5.0",
     "@hashgraph/sdk": "^2.10.1",
-    "@ledgerhq/compressjs": "1.3.2",
+    "@ledgerhq/compressjs": "github:LedgerHQ/compressjs#d9e8e4d994923e0ea76a32b97289bcccfe71b82e",
     "@ledgerhq/cryptoassets": "workspace:^",
     "@ledgerhq/devices": "workspace:^",
     "@ledgerhq/errors": "workspace:^",
@@ -199,7 +241,7 @@
     "eslint-plugin-typescript": "^0.14.0",
     "fs": "^0.0.1-security",
     "glob": "^7.2.0",
-    "jest": "^27.5.1",
+    "jest": "^28.1.1",
     "jest-file-snapshot": "^0.5.0",
     "prettier": "2.3.2",
     "react": "^17.0.2",
@@ -208,7 +250,7 @@
     "react-native-svg": "^12.1.1",
     "react-test-renderer": "^17.0.2",
     "timemachine": "^0.3.2",
-    "ts-jest": "^27.1.3",
+    "ts-jest": "^28.0.5",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.5",
     "typescript-eslint-parser": "^22.0.0",

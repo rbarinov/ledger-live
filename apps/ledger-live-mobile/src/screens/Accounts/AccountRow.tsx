@@ -1,23 +1,23 @@
 import React, { useCallback, useMemo } from "react";
 import { TouchableOpacity } from "react-native";
-import useEnv from "@ledgerhq/live-common/lib/hooks/useEnv";
+import useEnv from "@ledgerhq/live-common/hooks/useEnv";
 import {
   getAccountCurrency,
   getAccountName,
   getAccountUnit,
-} from "@ledgerhq/live-common/lib/account";
-import { getCurrencyColor } from "@ledgerhq/live-common/lib/currencies";
+} from "@ledgerhq/live-common/account/index";
+import { getCurrencyColor } from "@ledgerhq/live-common/currencies/index";
 import {
   Account,
   Currency,
   TokenAccount,
   CryptoCurrency,
-} from "@ledgerhq/live-common/lib/types";
-import { getTagDerivationMode } from "@ledgerhq/live-common/lib/derivation";
+} from "@ledgerhq/live-common/types/index";
+import { getTagDerivationMode } from "@ledgerhq/live-common/derivation";
 import { Flex, ProgressLoader, Text, Tag } from "@ledgerhq/native-ui";
 import { useTheme } from "styled-components/native";
 import { useSelector } from "react-redux";
-import { useCalculate } from "@ledgerhq/live-common/lib/countervalues/react";
+import { useCalculate } from "@ledgerhq/live-common/countervalues/react";
 import { BigNumber } from "bignumber.js";
 import { NavigatorName, ScreenName } from "../../const";
 import CurrencyUnitValue from "../../components/CurrencyUnitValue";

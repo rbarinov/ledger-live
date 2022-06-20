@@ -5,15 +5,15 @@ import {
   getAccountCurrency,
   groupAccountsOperationsByDay,
   isAccountEmpty,
-} from "@ledgerhq/live-common/lib/account";
+} from "@ledgerhq/live-common/account/index";
 import type {
   Account,
   Currency,
   Operation,
   Unit,
-} from "@ledgerhq/live-common/lib/types";
-import { isCountervalueEnabled } from "@ledgerhq/live-common/lib/countervalues/modules";
-import type { PortfolioRange } from "@ledgerhq/live-common/lib/portfolio/v2/types";
+} from "@ledgerhq/live-common/types/index";
+import { isCountervalueEnabled } from "@ledgerhq/live-common/countervalues/modules/index";
+import type { PortfolioRange } from "@ledgerhq/live-common/portfolio/v2/types";
 import React, { PureComponent, useMemo } from "react";
 import { StyleSheet, View, SectionList } from "react-native";
 import { useRoute, useTheme } from "@react-navigation/native";

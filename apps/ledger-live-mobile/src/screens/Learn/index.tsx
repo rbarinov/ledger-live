@@ -5,7 +5,7 @@ import { URLSearchParams } from "react-native-url-polyfill";
 import styled, { useTheme } from "styled-components/native";
 import { useTranslation } from "react-i18next";
 import NetInfo from "@react-native-community/netinfo";
-import useEnv from "@ledgerhq/live-common/lib/hooks/useEnv";
+import useEnv from "@ledgerhq/live-common/hooks/useEnv";
 import { useNavigation } from "@react-navigation/native";
 import extraStatusBarPadding from "../../logic/extraStatusBarPadding";
 import LoadingView from "./LoadingScreen";

@@ -24,27 +24,27 @@ import { JSONRPCRequest } from "json-rpc-2.0";
 import type {
   RawPlatformTransaction,
   RawPlatformSignedTransaction,
-} from "@ledgerhq/live-common/lib/platform/rawTypes";
+} from "@ledgerhq/live-common/platform/rawTypes";
 
-import { getEnv } from "@ledgerhq/live-common/lib/env";
-import { getAccountBridge } from "@ledgerhq/live-common/lib/bridge";
+import { getEnv } from "@ledgerhq/live-common/env";
+import { getAccountBridge } from "@ledgerhq/live-common/bridge/index";
 import {
   listCryptoCurrencies,
   findCryptoCurrencyById,
-} from "@ledgerhq/live-common/lib/currencies/index";
-import type { AppManifest } from "@ledgerhq/live-common/lib/platform/types";
+} from "@ledgerhq/live-common/currencies/index";
+import type { AppManifest } from "@ledgerhq/live-common/platform/types";
 
-import { useJSONRPCServer } from "@ledgerhq/live-common/lib/platform/JSONRPCServer";
+import { useJSONRPCServer } from "@ledgerhq/live-common/platform/JSONRPCServer";
 import {
   accountToPlatformAccount,
   currencyToPlatformCurrency,
-} from "@ledgerhq/live-common/lib/platform/converters";
+} from "@ledgerhq/live-common/platform/converters";
 import {
   serializePlatformAccount,
   deserializePlatformTransaction,
   serializePlatformSignedTransaction,
   deserializePlatformSignedTransaction,
-} from "@ledgerhq/live-common/lib/platform/serializers";
+} from "@ledgerhq/live-common/platform/serializers";
 import { NavigatorName, ScreenName } from "../../const";
 import { broadcastSignedTx } from "../../logic/screenTransactionHooks";
 import { accountsSelector } from "../../reducers/accounts";

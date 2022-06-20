@@ -2,12 +2,12 @@
 import React, { PureComponent } from "react";
 import { Trans } from "react-i18next";
 import { View, StyleSheet } from "react-native";
-import type { Account, AccountLike } from "@ledgerhq/live-common/lib/types";
+import type { Account, AccountLike } from "@ledgerhq/live-common/types/index";
 import {
   getAccountCurrency,
   getMainAccount,
-} from "@ledgerhq/live-common/lib/account";
-import { listTokenTypesForCryptoCurrency } from "@ledgerhq/live-common/lib/currencies";
+} from "@ledgerhq/live-common/account/index";
+import { listTokenTypesForCryptoCurrency } from "@ledgerhq/live-common/currencies/index";
 import { ScreenName, NavigatorName } from "../../const";
 
 import LText from "../../components/LText";

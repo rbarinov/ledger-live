@@ -4,13 +4,13 @@ import { useTheme } from "@react-navigation/native";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
-import { getAccountCurrency } from "@ledgerhq/live-common/lib/account";
+import { getAccountCurrency } from "@ledgerhq/live-common/account/index";
 
 import {
   AccountLike,
   Account,
   CryptoCurrency,
-} from "@ledgerhq/live-common/lib/types";
+} from "@ledgerhq/live-common/types/index";
 
 import { Icons } from "@ledgerhq/native-ui";
 import { isCurrencySupported } from "../screens/Exchange/coinifyConfig";

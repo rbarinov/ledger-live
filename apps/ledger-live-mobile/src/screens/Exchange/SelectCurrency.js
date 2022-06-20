@@ -6,16 +6,16 @@ import SafeAreaView from "react-native-safe-area-view";
 import type {
   CryptoCurrency,
   TokenCurrency,
-} from "@ledgerhq/live-common/lib/types";
+} from "@ledgerhq/live-common/types/index";
 import {
   isCurrencySupported,
   listTokens,
   useCurrenciesByMarketcap,
   listSupportedCurrencies,
-} from "@ledgerhq/live-common/lib/currencies";
+} from "@ledgerhq/live-common/currencies/index";
 
 import { useTheme } from "@react-navigation/native";
-import type { Device } from "@ledgerhq/hw-transport/lib/Transport";
+import type { Device } from "@ledgerhq/hw-transport";
 import { track } from "../../analytics/segment";
 import { TrackScreen } from "../../analytics";
 import FilteredSearchBar from "../../components/FilteredSearchBar";

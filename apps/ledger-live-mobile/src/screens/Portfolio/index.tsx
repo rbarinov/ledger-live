@@ -9,7 +9,7 @@ import Animated, {
 import { createNativeWrapper } from "react-native-gesture-handler";
 import { useTranslation } from "react-i18next";
 import { useFocusEffect } from "@react-navigation/native";
-import { isAccountEmpty } from "@ledgerhq/live-common/lib/account";
+import { isAccountEmpty } from "@ledgerhq/live-common/account/index";
 
 import { Box, Flex, Link as TextLink, Text } from "@ledgerhq/native-ui";
 
@@ -18,7 +18,7 @@ import { FlexBoxProps } from "@ledgerhq/native-ui/components/Layout/Flex";
 import proxyStyled from "@ledgerhq/native-ui/components/styled";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { PlusMedium } from "@ledgerhq/native-ui/assets/icons";
-import { Currency } from "@ledgerhq/live-common/lib/types";
+import { Currency } from "@ledgerhq/live-common/types/index";
 import { useRefreshAccountsOrdering } from "../../actions/general";
 import { accountsSelector } from "../../reducers/accounts";
 import {

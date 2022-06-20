@@ -8,36 +8,36 @@ import type {
   CryptoCurrency,
   TokenCurrency,
   TransactionStatus,
-} from "@ledgerhq/live-common/lib/types";
+} from "@ledgerhq/live-common/types/index";
 import type {
   Account,
   AccountLike,
   TokenAccount,
-} from "@ledgerhq/live-common/lib/types/account";
+} from "@ledgerhq/live-common/types/account";
 
 import type {
   ExchangeRate,
   SwapTransaction,
-} from "@ledgerhq/live-common/lib/exchange/swap/types";
-import type { SwapDataType } from "@ledgerhq/live-common/lib/exchange/swap/hooks";
+} from "@ledgerhq/live-common/exchange/swap/types";
+import type { SwapDataType } from "@ledgerhq/live-common/exchange/swap/hooks";
 
-import { useSwapTransaction } from "@ledgerhq/live-common/lib/exchange/swap/hooks";
+import { useSwapTransaction } from "@ledgerhq/live-common/exchange/swap/hooks/index";
 
 import {
   CurrenciesStatus,
   getSupportedCurrencies,
-} from "@ledgerhq/live-common/lib/exchange/swap/logic";
+} from "@ledgerhq/live-common/exchange/swap/logic";
 
 import { Trans } from "react-i18next";
-import { getAccountBridge } from "@ledgerhq/live-common/lib/bridge";
+import { getAccountBridge } from "@ledgerhq/live-common/bridge/index";
 import {
   accountWithMandatoryTokens,
   flattenAccounts,
   getAccountCurrency,
   getAccountUnit,
-} from "@ledgerhq/live-common/lib/account";
+} from "@ledgerhq/live-common/account/index";
 import { useDispatch, useSelector } from "react-redux";
-import { useCurrenciesByMarketcap } from "@ledgerhq/live-common/lib/currencies";
+import { useCurrenciesByMarketcap } from "@ledgerhq/live-common/currencies/index";
 import AccountAmountRow from "./FormSelection/AccountAmountRow";
 import Button from "../../components/Button";
 import LText from "../../components/LText";

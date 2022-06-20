@@ -75,7 +75,7 @@ const captureBreadcrumb = (breadcrumb: any) => {
   if (!process.env.STORYBOOK_ENV) {
     try {
       if (typeof window !== "undefined") {
-        require("~/sentry/renderer").captureBreadcrumb(breadcrumb);
+        import("~/sentry/renderer").then(sentry => sentry.captureBreadcrumb(breadcrumb));
       } else if (process.title === "Ledger Live Internal") {
         require("~/sentry/internal").captureBreadcrumb(breadcrumb);
       } else {
@@ -90,7 +90,7 @@ const captureBreadcrumb = (breadcrumb: any) => {
 const captureException = (error: Error) => {
   try {
     if (typeof window !== "undefined") {
-      require("~/sentry/renderer").captureException(error);
+      import("~/sentry/renderer").then(sentry => sentry.captureException(error));
     } else if (process.title === "Ledger Live Internal") {
       require("~/sentry/internal").captureException(error);
     } else {

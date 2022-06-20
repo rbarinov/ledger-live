@@ -6,12 +6,12 @@ import { Trans, useTranslation } from "react-i18next";
 import type {
   Account,
   AccountLikeArray,
-} from "@ledgerhq/live-common/lib/types";
+} from "@ledgerhq/live-common/types/index";
 import { useSelector } from "react-redux";
 import {
   accountWithMandatoryTokens,
   flattenAccounts,
-} from "@ledgerhq/live-common/lib/account/helpers";
+} from "@ledgerhq/live-common/account/helpers";
 import { useTheme } from "@react-navigation/native";
 import { Button, Icons } from "@ledgerhq/native-ui";
 import { accountsSelector } from "../../reducers/accounts";

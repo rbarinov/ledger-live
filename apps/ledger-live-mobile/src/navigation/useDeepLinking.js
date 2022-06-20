@@ -1,8 +1,8 @@
 // @flow
 import { useCallback, useMemo } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { usePlatformApp } from "@ledgerhq/live-common/lib/platform/PlatformAppProvider";
-import { filterPlatformApps } from "@ledgerhq/live-common/lib/platform/PlatformAppProvider/helpers";
+import { usePlatformApp } from "@ledgerhq/live-common/platform/PlatformAppProvider/index";
+import { filterPlatformApps } from "@ledgerhq/live-common/platform/PlatformAppProvider/helpers";
 import { NavigatorName, ScreenName } from "../const";
 
 function getSettingsScreen(pathname) {

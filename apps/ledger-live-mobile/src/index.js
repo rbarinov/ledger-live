@@ -27,15 +27,15 @@ import { NavigationContainer } from "@react-navigation/native";
 import Transport from "@ledgerhq/hw-transport";
 import { NotEnoughBalance } from "@ledgerhq/errors";
 import { log } from "@ledgerhq/logs";
-import { checkLibs } from "@ledgerhq/live-common/lib/sanityChecks";
-import { FeatureToggle } from "@ledgerhq/live-common/lib/featureFlags";
-import { useCountervaluesExport } from "@ledgerhq/live-common/lib/countervalues/react";
-import { pairId } from "@ledgerhq/live-common/lib/countervalues/helpers";
+import { checkLibs } from "@ledgerhq/live-common/sanityChecks";
+import { FeatureToggle } from "@ledgerhq/live-common/featureFlags/index";
+import { useCountervaluesExport } from "@ledgerhq/live-common/countervalues/react";
+import { pairId } from "@ledgerhq/live-common/countervalues/helpers";
 
-import { NftMetadataProvider } from "@ledgerhq/live-common/lib/nft";
-import { ToastProvider } from "@ledgerhq/live-common/lib/notifications/ToastProvider";
-import { PlatformAppProvider } from "@ledgerhq/live-common/lib/platform/PlatformAppProvider";
-import { getProvider } from "@ledgerhq/live-common/lib/platform/PlatformAppProvider/providers";
+import { NftMetadataProvider } from "@ledgerhq/live-common/nft/index";
+import { ToastProvider } from "@ledgerhq/live-common/notifications/ToastProvider/index";
+import { PlatformAppProvider } from "@ledgerhq/live-common/platform/PlatformAppProvider/index";
+import { getProvider } from "@ledgerhq/live-common/platform/PlatformAppProvider/providers";
 
 import logger from "./logger";
 import { saveAccounts, saveBle, saveSettings, saveCountervalues } from "./db";
@@ -61,10 +61,12 @@ import useDBSaveEffect from "./components/DBSave";
 import useAppStateListener from "./components/useAppStateListener";
 import SyncNewAccounts from "./bridge/SyncNewAccounts";
 import { OnboardingContextProvider } from "./screens/Onboarding/onboardingContext";
+/* eslint-disable import/named */
 import WalletConnectProvider, {
   // $FlowFixMe
   context as _wcContext,
 } from "./screens/WalletConnect/Provider";
+/* eslint-enable import/named */
 import HookAnalytics from "./analytics/HookAnalytics";
 import HookSentry from "./components/HookSentry";
 import RootNavigator from "./components/RootNavigator";

@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { Flex, Icons } from "@ledgerhq/native-ui";
 import { useSelector } from "react-redux";
 import { useTheme } from "styled-components/native";
-import useFeature from "@ledgerhq/live-common/lib/featureFlags/useFeature";
+import useFeature from "@ledgerhq/live-common/featureFlags/useFeature";
 import { ScreenName, NavigatorName } from "../../const";
 import * as families from "../../families";
 import OperationDetails, {

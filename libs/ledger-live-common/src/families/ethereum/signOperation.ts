@@ -8,7 +8,7 @@ import { log } from "@ledgerhq/logs";
 import { FeeNotLoaded } from "@ledgerhq/errors";
 import Eth from "@ledgerhq/hw-app-eth";
 import { byContractAddressAndChainId } from "@ledgerhq/hw-app-eth/erc20";
-import ethLedgerServices from "@ledgerhq/hw-app-eth/lib/services/ledger";
+import { ledgerService as ethLedgerServices } from "@ledgerhq/hw-app-eth";
 import type { Transaction } from "./types";
 import type { Operation, Account, SignOperationEvent } from "../../types";
 import { getGasLimit, buildEthereumTx } from "./transaction";

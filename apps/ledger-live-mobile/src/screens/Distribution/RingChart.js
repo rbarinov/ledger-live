@@ -5,7 +5,7 @@ import { PanResponder, View } from "react-native";
 import type { PressEvent } from "react-native/Libraries/Types/CoreEventTypes";
 import * as d3shape from "d3-shape";
 import Svg, { Path, G, Circle } from "react-native-svg";
-import { getCurrencyColor } from "@ledgerhq/live-common/lib/currencies";
+import { getCurrencyColor } from "@ledgerhq/live-common/currencies/index";
 import type { DistributionItem } from "./DistributionCard";
 import { ensureContrast, withTheme } from "../../colors";
 

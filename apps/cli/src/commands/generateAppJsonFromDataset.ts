@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 import invariant from "invariant";
 import { reduce, filter, map } from "rxjs/operators";
-import { getCurrencyBridge } from "@ledgerhq/live-common/lib/bridge";
-import { implicitMigration } from "@ledgerhq/live-common/lib/migrations/accounts";
-import { getCryptoCurrencyById } from "@ledgerhq/live-common/lib/currencies";
-import { setPlatformVersion } from "@ledgerhq/live-common/lib/platform/version";
-import datasets from "@ledgerhq/live-common/lib/generated/test-dataset";
-import { Account } from "@ledgerhq/live-common/lib/types";
+import { getCurrencyBridge } from "@ledgerhq/live-common/bridge/index";
+import { implicitMigration } from "@ledgerhq/live-common/migrations/accounts";
+import { getCryptoCurrencyById } from "@ledgerhq/live-common/currencies/index";
+import { setPlatformVersion } from "@ledgerhq/live-common/platform/version";
+import datasets from "@ledgerhq/live-common/generated/test-dataset";
+import { Account } from "@ledgerhq/live-common/types/index";
 import { mockDeviceWithAPDUs, releaseMockDevice } from "../live-common-setup";
 
 setPlatformVersion("0.0.1");

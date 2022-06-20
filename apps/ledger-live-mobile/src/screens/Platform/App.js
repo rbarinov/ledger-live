@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useEffect } from "react";
-import { usePlatformApp } from "@ledgerhq/live-common/lib/platform/PlatformAppProvider";
+import { usePlatformApp } from "@ledgerhq/live-common/platform/PlatformAppProvider/index";
 import type { StackScreenProps } from "@react-navigation/stack";
 import { useNavigation, useTheme } from "@react-navigation/native";
 import TrackScreen from "../../analytics/TrackScreen";

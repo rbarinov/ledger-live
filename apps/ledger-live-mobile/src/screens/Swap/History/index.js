@@ -17,10 +17,10 @@ import { Trans, useTranslation } from "react-i18next";
 import Share from "react-native-share";
 import { useTheme } from "@react-navigation/native";
 
-import getCompleteSwapHistory from "@ledgerhq/live-common/lib/exchange/swap/getCompleteSwapHistory";
-import updateAccountSwapStatus from "@ledgerhq/live-common/lib/exchange/swap/updateAccountSwapStatus";
-import { mappedSwapOperationsToCSV } from "@ledgerhq/live-common/lib/exchange/swap/csvExport";
-import { operationStatusList } from "@ledgerhq/live-common/lib/exchange/swap";
+import getCompleteSwapHistory from "@ledgerhq/live-common/exchange/swap/getCompleteSwapHistory";
+import updateAccountSwapStatus from "@ledgerhq/live-common/exchange/swap/updateAccountSwapStatus";
+import { mappedSwapOperationsToCSV } from "@ledgerhq/live-common/exchange/swap/csvExport";
+import { operationStatusList } from "@ledgerhq/live-common/exchange/swap/index";
 
 import useInterval from "../../../components/useInterval";
 import { updateAccountWithUpdater } from "../../../actions/accounts";

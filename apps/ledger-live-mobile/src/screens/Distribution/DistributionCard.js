@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import type {
   CryptoCurrency,
   TokenCurrency,
-} from "@ledgerhq/live-common/lib/types/currencies";
-import { getCurrencyColor } from "@ledgerhq/live-common/lib/currencies";
+} from "@ledgerhq/live-common/types/currencies";
+import { getCurrencyColor } from "@ledgerhq/live-common/currencies/index";
 
 import { useTheme } from "@react-navigation/native";
 import LText from "../../components/LText";

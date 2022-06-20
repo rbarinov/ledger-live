@@ -6,11 +6,11 @@ import { useSelector } from "react-redux";
 import {
   getMainAccount,
   getReceiveFlowError,
-} from "@ledgerhq/live-common/lib/account";
-import type { AccountLike } from "@ledgerhq/live-common/lib/types/account";
-import type { Device } from "@ledgerhq/live-common/lib/hw/actions/types";
-import { createAction } from "@ledgerhq/live-common/lib/hw/actions/app";
-import connectApp from "@ledgerhq/live-common/lib/hw/connectApp";
+} from "@ledgerhq/live-common/account/index";
+import type { AccountLike } from "@ledgerhq/live-common/types/account";
+import type { Device } from "@ledgerhq/live-common/hw/actions/types";
+import { createAction } from "@ledgerhq/live-common/hw/actions/app";
+import connectApp from "@ledgerhq/live-common/hw/connectApp";
 
 import { useTheme } from "@react-navigation/native";
 import { accountScreenSelector } from "../../reducers/accounts";

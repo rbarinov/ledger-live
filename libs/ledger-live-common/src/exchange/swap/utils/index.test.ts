@@ -14,7 +14,7 @@ import type {
   TokenCurrency,
 } from "../../../types";
 import { getCryptoCurrencyById } from "../../../currencies";
-import { getTokenById } from "@ledgerhq/cryptoassets/lib/tokens";
+import { getTokenById } from "@ledgerhq/cryptoassets";
 
 describe("swap/utils/pickExchangeRate", () => {
   test("calls the callback function with null when no exchange rates are passed", () => {

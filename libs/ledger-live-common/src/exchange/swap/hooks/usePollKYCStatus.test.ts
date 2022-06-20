@@ -1,5 +1,4 @@
 import { renderHook } from "@testing-library/react-hooks";
-import { mocked } from "ts-jest/utils";
 
 import {
   usePollKYCStatus,
@@ -12,7 +11,7 @@ import { KYCStatus } from "../types";
 
 // mock getKYCStatus
 jest.mock("..");
-const mockedGetKYCStatus = mocked(getKYCStatus, true);
+const mockedGetKYCStatus = jest.mocked(getKYCStatus, true);
 
 describe("usePollKYCStatus", () => {
   const defaultInput: UsePollKYCStatusProps = {
