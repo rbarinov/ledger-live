@@ -83,11 +83,11 @@
     "actions": "pnpm --filter @actions/*"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.21.1",
+    "@changesets/cli": "^2.23.0",
     "create-release-hash": "workspace:*",
     "migrate-branch": "workspace:*",
     "pnpm-utils": "workspace:*",
-    "turbo": "^1.2.9"
+    "turbo": "^1.2.16"
   },
   "pnpm": {
     "overrides": {
