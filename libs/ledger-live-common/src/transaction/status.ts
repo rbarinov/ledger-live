@@ -4,8 +4,8 @@ import { deserializeError, serializeError } from "@ledgerhq/errors";
 import type {
   TransactionStatusRaw,
   TransactionStatus,
-} from "../types/transaction";
-import type { Account, Transaction } from "../types";
+} from "@ledgerhq/types-live";
+import type { Transaction } from "../types";
 import { getAccountUnit } from "../account";
 import {
   fromBitcoinInputRaw,

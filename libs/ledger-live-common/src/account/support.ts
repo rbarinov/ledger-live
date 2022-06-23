@@ -3,12 +3,6 @@ import {
   CurrencyNotSupported,
   UnavailableTezosOriginatedAccountReceive,
 } from "@ledgerhq/errors";
-import type {
-  Account,
-  AccountLike,
-  CryptoCurrency,
-  DerivationMode,
-} from "../types";
 import { getEnv } from "../env";
 import { decodeAccountId } from "./accountId";
 import {
@@ -18,6 +12,12 @@ import {
 import { isCurrencySupported } from "../currencies";
 import { getMainAccount } from "../account";
 import { getAccountBridge } from "../bridge";
+import type { CryptoCurrency } from "@ledgerhq/types-cryptoassets";
+import type {
+  Account,
+  AccountLike,
+  DerivationMode,
+} from "@ledgerhq/types-live";
 
 export const shouldShowNewAccount = (
   currency: CryptoCurrency,

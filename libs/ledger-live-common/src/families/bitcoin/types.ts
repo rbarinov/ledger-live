@@ -8,6 +8,7 @@ import type {
   TransactionCommon,
   TransactionCommonRaw,
 } from "../../types/transaction";
+import { TransactionStatus, TransactionStatusRaw } from "@ledgerhq/types-live";
 
 export type BitcoinInput = {
   address: string | null | undefined;
@@ -145,4 +146,12 @@ export type TransactionRaw = TransactionCommonRaw & {
   rbf: boolean;
   feePerByte: string | null | undefined;
   networkInfo: NetworkInfoRaw | null | undefined;
+};
+export type BitcoinTransactionStatus = TransactionStatus & {
+  txInputs?: BitcoinInput[];
+  txOutputs?: BitcoinOutput[];
+};
+export type BitcoinTransactionStatusRaw = TransactionStatusRaw & {
+  txInputs?: BitcoinInputRaw[];
+  txOutputs?: BitcoinOutputRaw[];
 };

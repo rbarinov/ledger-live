@@ -1,12 +1,5 @@
-import type {
-  CryptoCurrency,
-  Account,
-  AccountLike,
-  CurrencyBridge,
-  AccountBridge,
-  ScanAccountEventRaw,
-  ScanAccountEvent,
-} from "../types";
+import {type  CryptoCurrency } from "@ledgerhq/cryptoassets";
+import type { Account, AccountBridge, AccountLike, CurrencyBridge, ScanAccountEvent, ScanAccountEventRaw } from "@ledgerhq/types-live";
 import { fromAccountRaw, toAccountRaw } from "../account";
 import * as impl from "./impl";
 export type Proxy = {

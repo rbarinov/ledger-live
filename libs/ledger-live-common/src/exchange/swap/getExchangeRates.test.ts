@@ -1,8 +1,9 @@
 import { getCryptoCurrencyById } from "@ledgerhq/cryptoassets";
+import type { Account } from "@ledgerhq/types-live";
 import axios from "axios";
 import BigNumber from "bignumber.js";
 import { mocked } from "ts-jest/utils";
-import { Account, Transaction } from "../../types";
+import { Transaction } from "../../types";
 import getExchangeRates from "./getExchangeRates";
 import { Exchange, ExchangeRate } from "./types";
 

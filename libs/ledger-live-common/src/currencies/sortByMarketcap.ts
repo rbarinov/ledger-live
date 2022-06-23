@@ -1,4 +1,4 @@
-import type { Currency } from "../types";
+import type { Currency } from "@ledgerhq/cryptoassets";
 import { useState, useEffect } from "react";
 import { makeLRUCache } from "../cache";
 import api from "../countervalues/api";

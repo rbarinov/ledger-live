@@ -9,9 +9,9 @@ import {
   getCurrencyPortfolio,
   getAssetsDistribution,
 } from "../portfolio";
-import type { Account } from "../types";
 import { genAccount } from "../mock/account";
 import { getBTCValues } from "../countervalues/mock";
+import type { Account } from "@ledgerhq/types-live";
 const baseMockBTCRates = getBTCValues();
 const accounts = Array(100)
   .fill(null)

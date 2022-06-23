@@ -10,19 +10,6 @@ import React, {
   useCallback,
   ReactElement,
 } from "react";
-import type {
-  Account,
-  AccountLike,
-  PortfolioRange,
-  Currency,
-  CryptoCurrency,
-  TokenCurrency,
-  AccountPortfolio,
-  Portfolio,
-  CurrencyPortfolio,
-  AssetsDistribution,
-  Unit,
-} from "../types";
 import {
   getBalanceHistoryWithCountervalue,
   getPortfolio,
@@ -50,6 +37,21 @@ import type {
   TrackingPair,
 } from "./types";
 import { useDebounce } from "../hooks/useDebounce";
+import {
+  Account,
+  AccountLike,
+  AccountPortfolio,
+  AssetsDistribution,
+  CurrencyPortfolio,
+  Portfolio,
+  PortfolioRange,
+} from "@ledgerhq/types-live";
+import {
+  CryptoCurrency,
+  Currency,
+  TokenCurrency,
+  Unit,
+} from "@ledgerhq/cryptoassets";
 // Polling is the control object you get from the high level <PollingConsumer>{ polling => ...
 export type Polling = {
   // completely wipe all countervalues

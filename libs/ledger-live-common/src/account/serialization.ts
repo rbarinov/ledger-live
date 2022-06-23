@@ -1,24 +1,4 @@
 import { BigNumber } from "bignumber.js";
-import type {
-  Account,
-  AccountRaw,
-  AccountLike,
-  AccountRawLike,
-  BalanceHistory,
-  BalanceHistoryRaw,
-  BalanceHistoryMap,
-  BalanceHistoryRawMap,
-  TokenAccount,
-  TokenAccountRaw,
-  ChildAccount,
-  ChildAccountRaw,
-  Operation,
-  OperationRaw,
-  SubAccount,
-  SubAccountRaw,
-  ProtoNFT,
-  ProtoNFTRaw,
-} from "../types";
 import type { TronResources, TronResourcesRaw } from "../families/tron/types";
 import {
   toBitcoinResourcesRaw,
@@ -71,6 +51,7 @@ import {
   fromCardanoResourceRaw,
   toCardanoResourceRaw,
 } from "../families/cardano/serialization";
+import type { Account, AccountLike, AccountRaw, AccountRawLike, BalanceHistory, BalanceHistoryRaw, ChildAccount, ChildAccountRaw, Operation, OperationRaw, SubAccount, SubAccountRaw, TokenAccount, TokenAccountRaw } from "@ledgerhq/types-live";
 
 export { toCosmosResourcesRaw, fromCosmosResourcesRaw };
 export { toAlgorandResourcesRaw, fromAlgorandResourcesRaw };

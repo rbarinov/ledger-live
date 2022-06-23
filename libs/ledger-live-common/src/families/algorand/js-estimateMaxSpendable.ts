@@ -1,5 +1,5 @@
 import { BigNumber } from "bignumber.js";
-import type { Account, AccountLike } from "../../types";
+import type { Account, AccountLike } from "@ledgerhq/types-live";
 import { getMainAccount } from "../../account";
 import type { AlgorandTransaction } from "./types";
 import { computeAlgoMaxSpendable } from "./logic";

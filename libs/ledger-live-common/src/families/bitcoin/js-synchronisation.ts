@@ -10,12 +10,7 @@ import { BigNumber } from "bignumber.js";
 import Btc from "@ledgerhq/hw-app-btc";
 import { log } from "@ledgerhq/logs";
 import { getCryptoCurrencyById } from "@ledgerhq/cryptoassets";
-import type {
-  Account,
-  Operation,
-  OperationType,
-  DerivationMode,
-} from "../../types";
+import type { DerivationMode } from "../../types";
 import type { GetAccountShape } from "../../bridge/jsHelpers";
 import { makeSync, makeScanAccounts, mergeOps } from "../../bridge/jsHelpers";
 import { findCurrencyExplorer } from "../../api/Ledger";
@@ -30,6 +25,7 @@ import { BitcoinOutput } from "./types";
 import { perCoinLogic } from "./logic";
 import wallet from "./wallet-btc";
 import { getAddressWithBtcInstance } from "./hw-getAddress";
+import { Account, Operation, OperationType } from "@ledgerhq/types-live";
 
 // Map LL's DerivationMode to wallet-btc's
 const toWalletDerivationMode = (

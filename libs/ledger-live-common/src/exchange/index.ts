@@ -1,5 +1,5 @@
 import { valid, gte } from "semver";
-import type { CryptoCurrency, TokenCurrency } from "../types/currencies";
+import type { CryptoCurrency, TokenCurrency } from "@ledgerhq/cryptoassets";
 import { findExchangeCurrencyConfig as findProdExchangeCurrencyConfig } from "@ledgerhq/cryptoassets";
 import { getEnv } from "../env";
 import { findTestExchangeCurrencyConfig } from "./testCurrencyConfig";

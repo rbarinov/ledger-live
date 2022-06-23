@@ -5,14 +5,6 @@ import {
   listTokensForCryptoCurrency,
   findCompoundToken,
 } from "../currencies";
-import type {
-  TokenAccount,
-  Account,
-  AccountLike,
-  Operation,
-  CryptoCurrency,
-  TokenCurrency,
-} from "../types";
 import { getOperationAmountNumber } from "../operation";
 import {
   inferSubOperations,
@@ -23,6 +15,16 @@ import {
 import { getDerivationScheme, runDerivationScheme } from "../derivation";
 import { genHex, genAddress } from "./helpers";
 import perFamilyMock from "../generated/mock";
+import type {
+  Account,
+  AccountLike,
+  Operation,
+  TokenAccount,
+} from "@ledgerhq/types-live";
+import type {
+  CryptoCurrency,
+  TokenCurrency,
+} from "@ledgerhq/types-cryptoassets";
 
 function ensureNoNegative(operations) {
   let total = new BigNumber(0);

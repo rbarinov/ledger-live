@@ -1,4 +1,4 @@
-import type { CryptoCurrency } from "../types";
+import type { CryptoCurrency } from "@ledgerhq/cryptoassets";
 import { makeLRUCache } from "../cache";
 import { getCurrencyBridge } from "./";
 export type BridgeCacheSystem = {

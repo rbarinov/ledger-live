@@ -8,7 +8,6 @@ import invariant from "invariant";
 import flatMap from "lodash/flatMap";
 import { getEnv } from "../env";
 import allSpecs from "../generated/specs";
-import { Account } from "../types";
 import type { MutationReport, SpecReport } from "./types";
 import { promiseAllBatched } from "../promise";
 import {
@@ -27,6 +26,7 @@ import {
   inferTrackingPairForAccounts,
 } from "../countervalues/logic";
 import { getPortfolio } from "../portfolio";
+import { Account } from "@ledgerhq/types-live";
 type Arg = Partial<{
   currency: string;
   family: string;

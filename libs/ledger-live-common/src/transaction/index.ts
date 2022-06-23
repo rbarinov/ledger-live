@@ -2,8 +2,9 @@ export * from "./common";
 export * from "./status";
 export * from "./signOperation";
 export * from "./deviceTransactionConfig";
-import type { Account, Transaction, TransactionRaw } from "../types";
+import type { Transaction, TransactionRaw } from "../types";
 import transactionModulePerFamily from "../generated/transaction";
+import type { Account } from "@ledgerhq/types-live";
 export const fromTransactionRaw = (tr: TransactionRaw): Transaction => {
   const TM = transactionModulePerFamily[tr.family];
   // FIXME: something is wrong with TM.fromTransactionRaw expecting a (arg: never) => for some reasons

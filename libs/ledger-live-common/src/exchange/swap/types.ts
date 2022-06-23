@@ -1,14 +1,13 @@
-import { BigNumber } from "bignumber.js";
-import type { Account, AccountLike } from "../../types/account";
-import type {
-  AccountRawLike,
+import { CryptoCurrency, TokenCurrency } from "@ledgerhq/cryptoassets";
+import {
+  Account,
+  AccountLike,
   AccountRaw,
+  AccountRawLike,
   Operation,
-  Transaction,
-  CryptoCurrency,
-  TokenCurrency,
-  TransactionRaw,
-} from "../../types";
+} from "@ledgerhq/types-live";
+import { BigNumber } from "bignumber.js";
+import type { Transaction, TransactionRaw } from "../../types";
 
 /// v3 changes here, move me to another folder soon
 export type ValidKYCStatus = "open" | "pending" | "approved" | "closed";

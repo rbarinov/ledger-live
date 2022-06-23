@@ -1,7 +1,9 @@
 import querystring from "querystring";
 import { BigNumber } from "bignumber.js";
-import type { CryptoCurrency } from "../types";
-import { findCryptoCurrencyByScheme } from "@ledgerhq/cryptoassets";
+import {
+  CryptoCurrency,
+  findCryptoCurrencyByScheme,
+} from "@ledgerhq/cryptoassets";
 // see https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki
 type Data = {
   address: string;

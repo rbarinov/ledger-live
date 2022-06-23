@@ -2,24 +2,26 @@ import { BigNumber } from "bignumber.js";
 import memoize from "lodash/memoize";
 import last from "lodash/last";
 import find from "lodash/find";
-import type {
-  AccountLikeArray,
-  AccountLike,
-  Account,
-  BalanceHistory,
-  AccountPortfolio,
-  CurrencyPortfolio,
-  PortfolioRange,
-  BalanceHistoryWithCountervalue,
-  Portfolio,
-  AssetsDistribution,
-  TokenCurrency,
-  CryptoCurrency,
-} from "../types";
 import { getOperationAmountNumberWithInternals } from "../operation";
 import { flattenAccounts, getAccountCurrency } from "../account/helpers";
 import { getEnv } from "../env";
 import { getPortfolioRangeConfig, getDates } from "./range";
+import type {
+  Account,
+  AccountLike,
+  AccountLikeArray,
+  AccountPortfolio,
+  AssetsDistribution,
+  BalanceHistory,
+  BalanceHistoryWithCountervalue,
+  CurrencyPortfolio,
+  Portfolio,
+  PortfolioRange,
+} from "@ledgerhq/types-live";
+import type {
+  CryptoCurrency,
+  TokenCurrency,
+} from "@ledgerhq/types-cryptoassets";
 
 export * from "./range";
 

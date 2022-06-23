@@ -11,8 +11,7 @@ import type {
   SubAccount,
   SubAccountRaw,
   BalanceHistoryCache,
-  BalanceHistoryRawMap,
-} from "./types";
+} from "@ledgerhq/types-live";
 import {
   fromAccountRaw,
   fromOperationRaw,

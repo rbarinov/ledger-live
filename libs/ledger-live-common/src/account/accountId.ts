@@ -1,9 +1,9 @@
 import memoize from "lodash/memoize";
 import invariant from "invariant";
-import type { CryptoCurrency, DerivationMode, TokenCurrency } from "../types";
 import { asDerivationMode } from "../derivation";
 import { getCryptoCurrencyById, findTokenById } from "../currencies";
-import { findTokenByAddressInCurrency } from "@ledgerhq/cryptoassets";
+import { CryptoCurrency, findTokenByAddressInCurrency, TokenCurrency } from "@ledgerhq/cryptoassets";
+import type { DerivationMode } from "@ledgerhq/types-live";
 export type AccountIdParams = {
   type: string;
   version: string;

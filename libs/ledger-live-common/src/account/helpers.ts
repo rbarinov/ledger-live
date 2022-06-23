@@ -1,19 +1,18 @@
 import { BigNumber } from "bignumber.js";
 import invariant from "invariant";
-import type {
-  AccountLike,
-  AccountLikeArray,
-  Account,
-  Unit,
-  SubAccount,
-  TokenCurrency,
-  TokenAccount,
-} from "../types";
 import { getEnv } from "../env";
 import { encodeTokenAccountId } from "./accountId";
 import { emptyHistoryCache } from "./balanceHistoryCache";
 import { isAccountDelegating } from "../families/tezos/bakers";
 import { initialBitcoinResourcesValue } from "../families/bitcoin/types";
+import type {
+  Account,
+  AccountLike,
+  AccountLikeArray,
+  SubAccount,
+  TokenAccount,
+} from "@ledgerhq/types-live";
+import { TokenCurrency, Unit } from "@ledgerhq/types-cryptoassets";
 
 // by convention, a main account is the top level account
 // in case of an Account is the account itself
