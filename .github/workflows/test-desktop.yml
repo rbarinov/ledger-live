@@ -20,8 +20,8 @@ jobs:
       INSTRUMENT_BUILD: true
       FORCE_COLOR: 3
       CI_OS: ${{ matrix.os }}
-      DEBUG: "pw:browser*"
-      DEBUG_LOGS: 1
+      # DEBUG: "pw:browser*"
+      # DEBUG_LOGS: 1
     strategy:
       fail-fast: false
       matrix:
@@ -30,12 +30,11 @@ jobs:
           # - macos-latest
           - windows-latest
         ref:
-          - c57b5ba9e402fbf4719260a58932b218f29bfb3d
-          - 311a3ce7a95b82c46ac269c540bc7770691cf5b9
-          - c35577cf244cb6e15e4e3c7f58db14558ba05e9c
-          - b410fbfc29c42a9445f65f6fa24911e5bdf35108
-          - ffa7ecbe1f08f64e160755155ab4c494923565dd
-          - bbb7a21d81294fce6463b28a8d44012114a23f85
+          - deb90cd165e79696b1418d17c602e165cc546f9f
+          - 177fe191fd407d6d8b2c789b06709ceb85e997ed
+          - 7d8491996a51f7868994f9f16a0cb54133af06de
+          - 42051cd1dcf34785d3643a42ec7fd353d1cc5c9f
+          - 8cc0ada29963f2d07311ecdcf6d4fb1280c14091
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -94,27 +93,3 @@ jobs:
         if: matrix.os != 'ubuntu-latest'
         run: pnpm desktop test:playwright
         shell: bash
-      - name: upload diffs to imgur
-        if: always() && !cancelled()
-        uses: ledgerhq/ledger-live/tools/actions/upload-images@develop
-        id: imgur
-        with:
-          path: apps/ledger-live-desktop/tests/artifacts/test-results
-          workspace: ${{ github.workspace }}
-          os: ${{ steps.os.outputs.result }}
-      - name: upload ci suggested screenshots
-        if: always() && !cancelled()
-        uses: actions/upload-artifact@v3
-        with:
-          name: images
-          path: images-${{steps.os.outputs.result}}.json
-      - name: Upload playwright test results [On Failure]
-        uses: actions/upload-artifact@v3
-        if: failure() && !cancelled()
-        with:
-          name: ${{ format('playwright-results-{0}', matrix.os) }}
-          path: |
-            apps/ledger-live-desktop/tests/artifacts/test-results
-            apps/ledger-live-desktop/tests/artifacts/html-report
-            apps/ledger-live-desktop/tests/artifacts/coverage
-            apps/ledger-live-desktop/tests/artifacts/videos
