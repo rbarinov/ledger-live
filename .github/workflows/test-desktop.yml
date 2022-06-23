@@ -68,6 +68,7 @@ jobs:
       CI_OS: ${{ matrix.os }}
       DEBUG: "pw:browser*"
       DEBUG_LOGS: 1
+      INTERNAL_LOGS: 1
     strategy:
       fail-fast: false
       matrix:
