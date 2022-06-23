@@ -10,55 +10,9 @@ on:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  typecheck:
-    name: "Ledger Live Desktop TypeCheck"
-    env:
-      NODE_OPTIONS: "--max-old-space-size=7168"
-      INSTRUMENT_BUILD: true
-      FORCE_COLOR: 3
-      # DEBUG: "pw:browser*"
-      # DEBUG_LOGS: 1
-      CI_OS: ubuntu-latest
-
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.inputs.ref || github.ref }}
-      - uses: pnpm/action-setup@v2.1.0
-        with:
-          version: latest
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: pnpm
-          cache-dependency-path: "**/pnpm-lock.yaml"
-      - uses: actions/setup-python@v2
-        with:
-          python-version: "3.x"
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-          bundler-cache: true
-      - name: Bump npm to latest
-        run: npm i -g npm
-      - name: TurboRepo local server
-        uses: felixmosh/turborepo-gh-artifacts@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          server-token: "yolo"
-      - name: Install dependencies
-        run: pnpm i --filter="ledger-live-desktop..." --filter="ledger-live" --frozen-lockfile --unsafe-perm
-      - name: Install playwright dependencies
-        run: npx @playwright/test install-deps
-      - name: Build dependencies
-        run: pnpm turbo run ledger-live-desktop#build:testing --api="http://127.0.0.1:9080" --token="yolo" --team="foo"
-      - name: Run code checkers
-        run: pnpm desktop test:codecheck
-
   test-desktop-app:
     name: "Ledger Live Desktop Tests"
     env:
@@ -68,14 +22,20 @@ jobs:
       CI_OS: ${{ matrix.os }}
       DEBUG: "pw:browser*"
       DEBUG_LOGS: 1
-      INTERNAL_LOGS: 1
     strategy:
       fail-fast: false
       matrix:
         os:
-          - ubuntu-latest
+          # - ubuntu-latest
           # - macos-latest
           - windows-latest
+        ref:
+          - c57b5ba9e402fbf4719260a58932b218f29bfb3d
+          - 311a3ce7a95b82c46ac269c540bc7770691cf5b9
+          - c35577cf244cb6e15e4e3c7f58db14558ba05e9c
+          - b410fbfc29c42a9445f65f6fa24911e5bdf35108
+          - ffa7ecbe1f08f64e160755155ab4c494923565dd
+          - bbb7a21d81294fce6463b28a8d44012114a23f85
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -94,7 +54,7 @@ jobs:
             }
       - uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.inputs.ref || github.ref }}
+          ref: ${{ matrix.ref }}
       - uses: pnpm/action-setup@v2.1.0
         with:
           version: latest
@@ -158,71 +118,3 @@ jobs:
             apps/ledger-live-desktop/tests/artifacts/html-report
             apps/ledger-live-desktop/tests/artifacts/coverage
             apps/ledger-live-desktop/tests/artifacts/videos
-
-  report:
-    needs: [test-desktop-app]
-    runs-on: ubuntu-latest
-    if: ${{ always()  && !cancelled() && github.event.pull_request != '' }}
-    steps:
-      - uses: actions/checkout@v3
-      - name: check if comment already exists exists
-        uses: actions/github-script@v6
-        id: exists
-        with:
-          result-encoding: string
-          script: |
-            const comments = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-
-            const exists = comments.data.find(comment => comment.user.login === 'github-actions[bot]');
-
-            return exists?.id ?? 'false';
-      - name: download images artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: images
-      - name: parse images
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const fs = require("fs");
-
-            const files = ["images-linux", "images-windows"];
-
-            let result = {};
-            for (const file of files) {
-              try {
-                const raw = JSON.parse(fs.readFileSync("${{github.workspace}}/" + file + ".json"));
-                const key = file.replace("images-", "").replace("-latest", "").trim()
-                result[key] = raw;
-              } catch (err) {
-                console.log(err);
-              }
-            }
-
-            fs.writeFileSync("./images.json", JSON.stringify(result, null, 2));
-      - name: prepare comment with screenshots
-        id: comment
-        uses: ledgerhq/ledger-live/tools/actions/prepare-comment-screenshots@develop
-        with:
-          images: images.json
-      - name: edit comment
-        uses: actions/github-script@v6
-        if: ${{ steps.exists.outputs.result != 'false' }}
-        with:
-          script: |
-            await github.rest.issues.updateComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: ${{ steps.exists.outputs.result }},
-              body: `${{ steps.comment.outputs.body }}`
-            });
-      - name: create comment
-        if: ${{ steps.exists.outputs.result == 'false' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh pr comment ${{ github.event.number }} --body "${{ steps.comment.outputs.body }}"
